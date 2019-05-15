@@ -60,6 +60,21 @@ int size2(BTNode*T) //非叶结点个数
 	else
 		return 0; 
 }
+
+int depth(BTNode*T)
+{
+	int l,r;
+	if(T!=NULL){
+		l=1+depth(T->lchild);
+		r=1+depth(T->rchild);
+		if(l>r)
+			return l+1;
+		else
+			return r+1;
+	}
+		return 0;
+}
+
 int main(){
 	
 	BTNode*t=NULL;
@@ -70,5 +85,6 @@ int main(){
 	//printf("\n该二叉树的结点总数为：%d\n",size(t)); 
 	//printf("\n该二叉树的叶结点总数为：%d\n",size1(t));
 	printf("\n该二叉树的非叶结点总数为：%d\n",size2(t)); 
+	printf("\n该二叉树深度为：%d\n",depth(t));
 	return 0;
 }
